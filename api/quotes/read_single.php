@@ -26,7 +26,7 @@ if ($quotes->id = isset($_GET['id'])){
         //create json for output
         print_r(json_encode($quote_arr));
     } else {
-        print_r(json_encode(array('error'=> 'No Quotes Found')));
+        print_r(json_encode(array('message'=> 'No Quotes Found')));
     }
 } else {
     include_once('../quotes/read.php');
