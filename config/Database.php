@@ -4,7 +4,7 @@
         private $dbname;
         private $username;
         private $password;
-        private $port;
+        //private $port;
         private $conn;
 
         //DB Construct
@@ -13,14 +13,14 @@
             $this->password = getenv('DBPASSWORD');
             $this->dbname = getenv('DBDBNAME');   
             $this->host = getenv('DBHOST');
-            $this->port = getenv('DBPORT');
+            //$this->port = getenv('DBPORT');
         }
         //DB Connnect
         public function connect(){
             if ($this->conn)
                 return $this->conn;
             else{
-                $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
+                $dsn = "pgsql:host={$this->host};dbname={$this->dbname};";
                 try{
                     $this->conn = new PDO($dsn, $this->username, $this->password);
                     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
