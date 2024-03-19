@@ -37,13 +37,13 @@ if($data->quote != null or !empty($data->quote)){
                     echo json_encode(array('message'=> 'category_id Not Found'));
                 }
             } else {
-                echo json_encode(array('message'=> 'category_id Not Found'));
+                print_r(json_encode(array('message'=> 'Missing Required Parameters')));
             }
         } else {
             echo json_encode(array('message'=> 'author_id Not Found'));
         }
     } else {
-        echo json_encode(array('message'=> 'author_id Not Found'));
+        print_r(json_encode(array('message'=> 'Missing Required Parameters')));
     }
 } else {
     print_r(json_encode(array('message'=> 'Missing Required Parameters')));
