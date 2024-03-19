@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>BBylsmaMidterRestAPI</h1>
+        <h1>BBylsmaMidtermRestAPI</h1>
     </header>
 </body>
 </html>
