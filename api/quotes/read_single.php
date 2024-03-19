@@ -19,8 +19,8 @@ if ($quotes->id = isset($_GET['id'])){
         $quote_arr = array(
             'id' => $quotes->id,
             'quote' => $quotes->quote,
-            'author_id' => $quotes->author_id,
-            'category_id'=> $quotes->category_id
+            'author' => $quotes->author_id,
+            'category'=> $quotes->category_id
         );
 
         //create json for output

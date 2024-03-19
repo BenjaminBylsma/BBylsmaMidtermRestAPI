@@ -62,15 +62,15 @@ function print_query_results($result){
             $quotes_item = array(
                 'id' => $id,
                 'quote' => $quote,
-                'author_id' => $author,
-                'category_id' => $category
+                'author' => $author,
+                'category' => $category
             );
             array_push($quotes_arr, $quotes_item);
         }
 
         //turn to JSON for output
         echo json_encode($quotes_arr);
-        
+
     } else {
         //no quotes
         echo json_encode(array('message' => 'No Posts Found'));
