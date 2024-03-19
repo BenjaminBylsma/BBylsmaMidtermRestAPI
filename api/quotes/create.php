@@ -13,26 +13,34 @@ if($data->quote != null or !empty($data->quote)){
 
     $quotes->quote = $data->quote;
 
-    if($data->author_id != null and $quotes->getAuthorName() != null){
-
+    if($data->author_id != null){
         $quotes->author_id = $data->author_id;
+        
+        if($quotes->getAuthorName() != null){ 
 
-        if($data->category_id != null and $quotes->getCategoryName() != null){
+            if($data->category_id != null){
+                $quotes->category_id = $data->category_id;
 
-            $quotes->category_id = $data->category_id;
-            
-            //quote query
-            if($quotes->create()){
-                $quote_arr = array(
-                    'id' => $quotes->id,
-                    'quote' => $quotes->quote,
-                    'author_id' => $quotes->author_id,
-                    'category_id' => $quotes->category_id
-                );
-                print_r(json_encode($quote_arr));
+                if ($quotes->getCategoryName() != null){                    
+                    
+                    //quote query
+                    if($quotes->create()){
+                        $quote_arr = array(
+                            'id' => $quotes->id,
+                            'quote' => $quotes->quote,
+                            'author_id' => $quotes->author_id,
+                            'category_id' => $quotes->category_id
+                        );
+                        print_r(json_encode($quote_arr));
+                    }
+                } else {
+                    echo json_encode(array('message'=> 'category_id Not Found'));
+                }
+            } else {
+                echo json_encode(array('message'=> 'category_id Not Found'));
             }
         } else {
-            echo json_encode(array('message'=> 'category_id Not Found'));
+            echo json_encode(array('message'=> 'author_id Not Found'));
         }
     } else {
         echo json_encode(array('message'=> 'author_id Not Found'));
