@@ -15,7 +15,6 @@ $num = $result->rowCount();
 if($num > 0){
     //post array
     $categories_arr = array();
-    $categories_arr['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
@@ -24,12 +23,12 @@ if($num > 0){
             'id' => $id,
             'category' => $category
         );
-        array_push($categories_arr['data'], $categories_item);
+        array_push($categories_arr, $categories_item);
     } 
 
     //turn to JSON for output
     echo json_encode($categories_arr);
 } else {
     //no categories
-    echo json_encode(array('message' => 'No Posts Found'));
+    echo json_encode(array('message' => 'category_id Not Found'));
 }
