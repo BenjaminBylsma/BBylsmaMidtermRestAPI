@@ -9,15 +9,15 @@ $quotes = new Quote($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-if($data->quote != null){
+if($data->quote != null or !empty($data->quote)){
 
     $quotes->quote = $data->quote;
 
-    if($data->author_id != null){
+    if($data->author_id != null and $quotes->getAuthorName() != null){
 
         $quotes->author_id = $data->author_id;
 
-        if($data->category_id != null){
+        if($data->category_id != null and $quotes->getCategoryName() != null){
 
             $quotes->category_id = $data->category_id;
             
