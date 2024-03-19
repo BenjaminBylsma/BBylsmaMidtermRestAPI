@@ -33,23 +33,25 @@ class Quote {
 
     public function read_single(){
         $sql = "SELECT 
-            :id,
+            q.id,
             q.quote,
             a.author,
             c.category
         FROM quotes q
         LEFT JOIN authors a ON q.author_id = a.id
-        LEFT JOIN categories c ON q.category_id = c.id";
+        LEFT JOIN categories c ON q.category_id = c.id
+        WHERE q.id = :id";
 
         $stmt = $this->conn->prepare($sql);        
 
         $stmt->execute(['id' => $this->id]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->quote = $row['quote'];
-        $this->author_id = $row['author'];
-        $this->category_id = $row['category'];
+        if ($row > 0){
+            $this->quote = $row['quote'];
+            $this->author_id = $row['author'];
+            $this->category_id = $row['category'];
+        }
     }
 
     public function update(){
