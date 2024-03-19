@@ -23,7 +23,7 @@ if ($categories->id = isset($_GET['id'])){
         //create json for output
         print_r(json_encode($category_arr));
     } else {
-        print_r(json_encode(array('error'=> 'No data found to match id')));
+        print_r(json_encode(array('message'=> 'category_id Not Found')));
     }
 } else{
     include_once('../categories/read.php');
