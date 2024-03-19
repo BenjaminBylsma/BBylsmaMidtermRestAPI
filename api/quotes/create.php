@@ -32,11 +32,11 @@ if($data->quote != null){
                 print_r(json_encode($quote_arr));
             }
         } else {
-            $quotes->missingData();
+            echo json_encode(array('message'=> 'category_id Not Found'));
         }
     } else {
-        $quotes->missingData();
+        echo json_encode(array('message'=> 'author_id Not Found'));
     }
 } else {
-    $quotes->missingData();
+    print_r(json_encode(array('message'=> 'Missing Required Parameters')));
 }

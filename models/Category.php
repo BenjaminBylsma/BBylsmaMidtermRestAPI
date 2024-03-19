@@ -78,10 +78,6 @@ class Category {
         
     }
 
-    public function missingData(){
-        print_r(json_encode(array('message'=> 'Missing Required Parameters')));
-    }
-
     private function getMaxID(){
         $maxID = 'SELECT MAX(id) FROM categories';
             $newStmt = $this->conn->prepare($maxID);

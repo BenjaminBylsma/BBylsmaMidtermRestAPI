@@ -47,17 +47,17 @@ if (!empty($data->id)) {
                         }
 
                     } else {
-                        $quotes->missingData();
+                        print_r(json_encode(array('message'=> 'Missing Required Parameters')));
                     }
                 } else {
                     echo json_encode(array('message'=> 'author_id Not Found'));
                 }
             } else {
-                $quotes->missingData();
+                print_r(json_encode(array('message'=> 'Missing Required Parameters')));
             }
 
         } else {
-            $quotes->missingData();        
+            print_r(json_encode(array('message'=> 'Missing Required Parameters')));       
         }
     } else {
         echo json_encode(array('message'=> 'No Quotes Found'));

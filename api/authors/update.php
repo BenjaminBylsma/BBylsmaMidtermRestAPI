@@ -32,11 +32,11 @@ if (!empty($data->id)) {
                 echo json_encode(array('message'=> 'author_id Not Found'));
             }
         } else {
-            $authors->missingData();
+            print_r(json_encode(array('message'=> 'Missing Required Parameters')));
         }
     } else {
         echo json_encode(array('message'=> 'author_id Not Found'));
     }
 } else {
-    $authors->missingData();
+    print_r(json_encode(array('message'=> 'Missing Required Parameters')));
 }

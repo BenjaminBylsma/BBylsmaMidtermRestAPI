@@ -22,5 +22,5 @@ if (!empty($data->category)){
     }
 }
 else {
-    $categories->missingData();
+    print_r(json_encode(array('message'=> 'Missing Required Parameters')));
 }

@@ -22,5 +22,5 @@ if (!empty($data->author)){
     }
 }
 else {
-    $authors->missingData();
+    print_r(json_encode(array('message'=> 'Missing Required Parameters')));
 }

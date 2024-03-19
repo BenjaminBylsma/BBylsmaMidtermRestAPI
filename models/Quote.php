@@ -154,10 +154,6 @@ class Quote {
         return $stmt;
     }
 
-    public function missingData(){
-        print_r(json_encode(array('message'=> 'Missing Required Parameters')));
-    }
-
     private function getMaxID(){
         $maxID = 'SELECT MAX(id) FROM quotes';
             $newStmt = $this->conn->prepare($maxID);
